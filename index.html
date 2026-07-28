@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KD Weathercast</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="app">
+
+        <header class="header glass">
+
+            <div class="brand">
+                <div class="brand-icon">☁️</div>
+
+                <div>
+                    <h1>KD Weathercast</h1>
+                    <p>Live weather intelligence</p>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Live data
+            </div>
+
+        </header>
+
+        <section class="search-section">
+
+            <div class="search-box glass">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search city..."
+                    autocomplete="off"
+                >
+
+                <button id="searchBtn">
+                    Search
+                </button>
+
+                <div id="suggestions" class="suggestions"></div>
+
+            </div>
+
+            <p class="search-help">
+                Start typing a city to see suggestions
+            </p>
+
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Fetching weather...</span>
+        </div>
+
+        <div id="errorMessage" class="error hidden"></div>
+
+        <section id="weatherContent" class="weather-content hidden">
+
+            <div class="hero-card glass">
+
+                <div class="location-info">
+
+                    <div>
+                        <p class="eyebrow">CURRENT WEATHER</p>
+
+                        <h2 id="cityName">
+                            New Delhi
+                        </h2>
+
+                        <p id="locationDetails">
+                            India
+                        </p>
+                    </div>
+
+                    <div class="local-time">
+                        <span id="localTime">--:--</span>
+                        <small id="localDate">---</small>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-main">
+
+                    <div class="temperature-container">
+
+                        <div class="weather-icon-wrapper">
+                            <img
+                                id="weatherIcon"
+                                src=""
+                                alt="Weather condition"
+                            >
+                        </div>
+
+                        <div>
+                            <div class="temperature">
+                                <span id="temperature">--</span>
+                                <span class="degree">°C</span>
+                            </div>
+
+                            <p id="condition">
+                                --
+                            </p>
+
+                            <p class="feels-like">
+                                Feels like <strong id="feelsLike">--</strong>°C
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="weather-summary">
+
+                        <div class="summary-item">
+                            <span>🌡️</span>
+                            <div>
+                                <small>Condition</small>
+                                <strong id="conditionText">--</strong>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>☀️</span>
+                            <div>
+                                <small>UV Index</small>
+                                <strong id="uvIndex">--</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card glass">
+                    <div class="stat-icon">💧</div>
+                    <div>
+                        <span>Humidity</span>
+                        <strong id="humidity">--%</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card glass">
+                    <div class="stat-icon">💨</div>
+                    <div>
+                        <span>Wind Speed</span>
+                        <strong id="wind">-- km/h</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card glass">
+                    <div class="stat-icon">👁️</div>
+                    <div>
+                        <span>Visibility</span>
+                        <strong id="visibility">-- km</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card glass">
+                    <div class="stat-icon">☁️</div>
+                    <div>
+                        <span>Cloud Cover</span>
+                        <strong id="cloud">--%</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="details-card glass">
+
+                <div class="section-title">
+                    <div>
+                        <p class="eyebrow">WEATHER DETAILS</p>
+                        <h3>Today's conditions</h3>
+                    </div>
+
+                    <span id="lastUpdated">
+                        Updated: --
+                    </span>
+                </div>
+
+
+                <div class="details-grid">
+
+                    <div class="detail">
+                        <span>Pressure</span>
+                        <strong id="pressure">-- mb</strong>
+                    </div>
+
+                    <div class="detail">
+                        <span>Wind Direction</span>
+                        <strong id="windDirection">--</strong>
+                    </div>
+
+                    <div class="detail">
+                        <span>Precipitation</span>
+                        <strong id="precipitation">-- mm</strong>
+                    </div>
+
+                    <div class="detail">
+                        <span>Gust</span>
+                        <strong id="gust">-- km/h</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="emptyState" class="empty-state glass">
+
+            <div class="empty-icon">🌤️</div>
+
+            <h2>Check the weather</h2>
+
+            <p>
+                Search for any city to see live weather conditions,
+                temperature, wind, humidity and more.
+            </p>
+
+        </section>
+
+
+        <footer>
+            Weather data powered by WeatherAPI.com
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

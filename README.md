@@ -8,11 +8,6 @@ I wanted to create something practical where I could learn how APIs work, handle
 
 🔗 **Live Website:** [https://weather-app-bice-tau-68.vercel.app/]
 
-🔗 **GitHub Repository:** []
-
-## 📸 Screenshot
-
-![Weather App](./screenshot.png)
 
 ## ✨ What Can It Do?
 
@@ -40,5 +35,4 @@ Weather-App/
 │
 ├── index.html
 ├── style.css
-├── script.js
-└── screenshot.png
+└── script.js
